@@ -32,7 +32,7 @@ exports.isPasswordAndUserMatch = (req, res, next) => {
           delete req.body.password;
           return next();
         } else {
-          return res.status(400).send({ errors: ['Invalid email or password'] });
+          return res.status(400).send({ errors: 'Invalid email or password' });
         }
       }
     });
