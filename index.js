@@ -2,24 +2,23 @@ const cors = require('cors');
 const express = require('express');
 const ExternalAPI = require('./external-api/index');
 const JWT = require('./shared/jwt');
+const bodyParser = require('body-parser');
 
 app = express();
 port = process.env.PORT || 3000;
-//Task = require('./api/models/todoListModel'), //created model loading here
-bodyParser = require('body-parser');
   
-// enable cross domain
+// enable cross domain & parse the body
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-var usersRoutes = require('./api/routes/users'); //importing route
-usersRoutes(app); //register the route
-var movieRoutes = require('./api/routes/movies'); //importing route
-movieRoutes(app); //register the route
-var authenticationRoutes = require('./api/routes/authentication'); //importing route
-authenticationRoutes(app); //register the route
+// Import the routes
+var usersRoutes = require('./api/routes/users'); 
+usersRoutes(app); 
+var movieRoutes = require('./api/routes/movies'); 
+movieRoutes(app); 
+var authenticationRoutes = require('./api/routes/authentication'); 
+authenticationRoutes(app); 
 
 JWT.setupCredentials().then(() => {
   ExternalAPI.setupExternalAPIs()
