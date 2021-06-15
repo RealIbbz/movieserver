@@ -1,0 +1,7 @@
+steps:
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
+  args: ['./build/get_credentials.sh', '$_TARGET_PROJECT_ID', '$_ENVIRONMENT' ]
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', 'app.flexible.yaml', '--project', '$_TARGET_PROJECT_ID']
+

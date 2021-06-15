@@ -1,0 +1,31 @@
+{
+  "name": "movieserver",
+  "version": "1.0.0",
+  "description": "movie server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "node -r dotenv/config index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RealIbbz/movieserver.git"
+  },
+  "author": "Kelvin Ibbs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RealIbbz/movieserver/issues"
+  },
+  "homepage": "https://github.com/RealIbbz/movieserver#readme",
+  "dependencies": {
+    "@google-cloud/firestore": "^4.12.2",
+    "@google-cloud/secret-manager": "^3.7.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "got": "^11.8.2",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
