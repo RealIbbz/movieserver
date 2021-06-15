@@ -2,12 +2,11 @@ const JsonWebToken = require('jsonwebtoken');
 
 const Secret = require('../shared/cloud-provider/index');
 let secret;
-exports.setupCredentials = async function setupCredentials() {
-  secret = await Secret.secretManager.accessSecret('jwt-secret');
-}
-
 
 module.exports = {
+  setupCredentials : async () => {
+    secret = await Secret.secretManager.accessSecret('jwt-secret');
+  }, 
   sign: (payload) => {
     // Token signing options
     var signOptions = {
